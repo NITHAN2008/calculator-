@@ -45,8 +45,19 @@
                     <input type="button" value="*" onclick="display.value += '*'">
                 </div>
                 <div>
+<<<<<<< Updated upstream
                     <input type="button" value="AC" onclick="display.value = '' " class="del">
                     <input type="button" value="DEL" onclick="display.value = display.value.toString().slice(0,-1)" class="del">
+=======
+                    <input type="button" value="AC" onclick="clearDisplay()" class="del">
+                    <input type="button" value="DEL" onclick="deleteLast()" class="del">
+
+                    
+                </div>
+                <div>
+                    <input type="button" value="%" onclick="press('%')" class="operator">
+                    <input type="button" value="^" onclick="press('^')" class="operator">
+>>>>>>> Stashed changes
                 </div>
             </form>
         </div>
