@@ -19,9 +19,9 @@ function calculate() {
         operator = "+";
     } else if (expression.includes("-")) {
         operator = "-";
-    } else if (expression.includes("%")) {
+    } else if (expression.includes("%")) { //modulo function
         operator = "%";
-    } else if (expression.includes("^")) {
+    } else if (expression.includes("^")) { //exponent functoon
         operator = "^";        
     } else if (expression.includes("*")) {
         operator = "*";
@@ -43,9 +43,9 @@ function calculate() {
         answer = num1 + num2;
     } else if (operator === "-") {
         answer = num1 - num2;
-    } else if (operator === "%") {
+    } else if (operator === "%") { //modulo function
         answer = num1 % num2;
-    } else if (operator === "^") {
+    } else if (operator === "^") {   //exponent function 
         answer =Math.pow(num1, num2);
     } else if (operator === "*") {
         answer = num1 * num2;
