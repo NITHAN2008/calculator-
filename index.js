@@ -78,6 +78,34 @@ function calculate() {
     } catch (error) {
         document.getElementById("display").value = "Error";
     }
+//function decimalToFraction(decimal) {
+    if (decimal % 1 === 0) {
+        return decimal + "/1";
+    }
+
+    let denominator = 1;
+
+    while (decimal % 1 !== 0) {
+        decimal *= 10;
+        denominator *= 10;
+    }
+
+    let numerator = decimal;
+
+    // Find the Greatest Common Divisor (GCD)
+    function gcd(a, b) {
+        while (b !== 0) {
+            let temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
+    }
+
+    let divisor = gcd(numerator, denominator);
+
+    numerator /= divisor;
+    denominator /= divisor;
+
+    return numerator + "/" + denominator;
 }
-
-
