@@ -19,6 +19,12 @@ function calculate() {
         operator = "+";
     } else if (expression.includes("-")) {
         operator = "-";
+
+
+    } else if (expression.includes("%")) { //modulo function
+        operator = "%";
+    } else if (expression.includes("^")) { //exponent functoon
+        operator = "^";        
     } else if (expression.includes("*")) {
         operator = "*";
     } else if (expression.includes("/")) {
@@ -39,6 +45,10 @@ function calculate() {
         answer = num1 + num2;
     } else if (operator === "-") {
         answer = num1 - num2;
+    } else if (operator === "%") { //modulo function
+       // answer = num1 % num2;
+    } else if (operator === "^") {   //exponent function 
+        //answer =Math.pow(num1, num2);
     } else if (operator === "*") {
         answer = num1 * num2;
     } else if (operator === "/") {
@@ -63,6 +73,7 @@ function clearDisplay() {
 function deleteLast() {
     display.value = display.value.slice(0, -1);
 }
+
 //square root and decimal
    document.getElementById("display").value += value;{
 }
@@ -109,3 +120,4 @@ function calculate() {
 
     return numerator + "/" + denominator;
 }
+
