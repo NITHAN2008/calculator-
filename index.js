@@ -1,20 +1,9 @@
-//get the display and preview input elements
+// Get the display
 const display = document.getElementById("display");
-let isOn =true;
-//Turn ON
-function turnOn(){
-    isOn = true;
-    display.value = "0";
-}
-//Turn OFF
-function turnOff(){
-    isOn = false;
-    display.value = "";
 }
 //adds the button value to the display
 function press(value) {
     //Replace the initial 0 with the first number
-   if (!isOn) return;
     if(display.value === "0"){
         display.value = value;
     } else{
@@ -32,55 +21,121 @@ function preview() {
         result.value = "";
     }
 }
-// Calculates the final answer when the "=" buttion is oressed
+
+
+// Calculate 
 function calculate() {
+
+    let expression = display.value;
+    let operator;
+    let numbers;
+    let answer;
+
+    // Check which operator is used
+    if (expression.includes("+")) {
+        operator = "+";
+    } else if (expression.includes("-")) {
+        operator = "-";
+
+
+    } else if (expression.includes("%")) { //modulo function
+        operator = "%";
+    } else if (expression.includes("^")) { //exponent functoon
+        operator = "^";        
+    } else if (expression.includes("*")) {
+        operator = "*";
+    } else if (expression.includes("/")) {
+        operator = "/";
+    } else {
+        return;
+    }
+
+    // Split the expression
+    numbers = expression.split(operator);
+
+    // Convert text to numbers
+    let num1 = parseFloat(numbers[0]);
+    let num2 = parseFloat(numbers[1]);
+
+    // Perform the calculation
+    if (operator === "+") {
+        answer = num1 + num2;
+    } else if (operator === "-") {
+        answer = num1 - num2;
+    } else if (operator === "%") { //modulo function
+       // answer = num1 % num2;
+    } else if (operator === "^") {   //exponent function 
+        //answer =Math.pow(num1, num2);
+    } else if (operator === "*") {
+        answer = num1 * num2;
+    } else if (operator === "/") {
+
+        if (num2 === 0) {
+            display.value = "Error";
+            return;
+        }
+
+        answer = num1 / num2;
+    }
+
+    display.value = answer;
+}
+
+// Clear all
+function clearDisplay() {
+    display.value = "";
+}
+
+// Delete the last character
+function deleteLast() {
+    display.value = display.value.slice(0, -1);
+}
+
+//square root and decimal
+   document.getElementById("display").value += value;{
+}
+
+function calculate() {
+    let expression = document.getElementById("display").value;
+
+    // Handle square root
+    expression = expression.replace(/√(\d+(\.\d+)?)/g, "Math.sqrt($1)");
+
     try {
-        display.value = solve(display.value);
-    } catch {
-        display.value = "Error";
+        document.getElementById("display").value = eval(expression);
+    } catch (error) {
+        document.getElementById("display").value = "Error";
     }
-}
-// Performs the arithmetic operation
-function calculateExpression(expression) {
-// store the operator enterd by the user
-    let operator = "";
-// Check which operator is in the expression 
-    if (expression.includes("+")) operator = "+";
-    else if (expression.includes("-")) operator = "-";
-    else if (expression.includes("*")) operator = "*";
-    else if (expression.includes("÷")) operator = "÷";
-    else return expression; //reture the number if no operator exists
-//Split the expression into two numbers
-    let parts = expression.split(operator);
-// Convert the expression values into numbers
-    let num1 = parseFloat(parts[0]);
-    let num2 = parseFloat(parts[1]);
-// Perform the correct arithmatic operation
-    switch (operator) {
-        case "+":
-            return num1 + num2;
-        case "-":
-            return num1 - num2;
-        case "*":
-            return num1 * num2;
-        case "÷":
-            // Prevent division by zero
-            return num2 !== 0 ? num1 / num2 : "";
-        
+//function decimalToFraction(decimal) {
+    if (decimal % 1 === 0) {
+        return decimal + "/1";
     }
-}
-function cleardisplay(){
-    display.value ="0";
-    if (result) result.value="";
-}
-function deleteLast(){
-    if (display.value.length > 0) {
-        display.value = display.value.slice(0, -1);
-        preview(); //Update the preview
-    }                                                          
-}
-if(typeofpreview === "function"){
-    preview();
+
+    let denominator = 1;
+
+    while (decimal % 1 !== 0) {
+        decimal *= 10;
+        denominator *= 10;
+    }
+
+    let numerator = decimal;
+
+    // Find the Greatest Common Divisor (GCD)
+    function gcd(a, b) {
+        while (b !== 0) {
+            let temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
+    }
+
+    let divisor = gcd(numerator, denominator);
+
+    numerator /= divisor;
+    denominator /= divisor;
+
+    return numerator + "/" + denominator;
 }
 //BODMAS
 function solve(expression) {
@@ -145,3 +200,4 @@ function calculateSimple(exp) {
 
     return answer;
 }
+
