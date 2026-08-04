@@ -152,48 +152,30 @@ function solve(expression) {
 }
 function calculateSimple(exp) {
 
-    let tokens = exp.match(/-?\d+(\.\d+)?|[+\-*/^]/g);
+    // Split numbers and operators
+    let tokens = exp.match(/(\d+(\.\d+)?)|[+\-*/]/g);
 
     if (!tokens) return "";
 
-    tokens = tokens.map(token =>
-        isNaN(token) ? token : parseFloat(token)
-    );
-
-    // Orders (^)
-
+    // Convert numbers
     for (let i = 0; i < tokens.length; i++) {
-
-        if (tokens[i] === "^") {
-
-            let result = Math.pow(tokens[i - 1], tokens[i + 1]);
-
-            tokens.splice(i - 1, 3, result);
-
-            i--;
+        if (!isNaN(tokens[i])) {
+            tokens[i] = parseFloat(tokens[i]);
         }
     }
 
-    // Multiplication & Division
-
+    // Division and Multiplication first
     for (let i = 0; i < tokens.length; i++) {
 
         if (tokens[i] === "*") {
-
             let result = tokens[i - 1] * tokens[i + 1];
 
             tokens.splice(i - 1, 3, result);
 
             i--;
+        }
 
-        } else if (tokens[i] === "/") {
-
-            if (tokens[i + 1] === 0) {
-
-                throw new Error("Cannot divide by zero");
-
-            }
-
+        else if (tokens[i] === "/") {
             let result = tokens[i - 1] / tokens[i + 1];
 
             tokens.splice(i - 1, 3, result);
@@ -202,23 +184,20 @@ function calculateSimple(exp) {
         }
     }
 
-    // Addition & Subtraction
-
+    // Addition and Subtraction
     let answer = tokens[0];
 
     for (let i = 1; i < tokens.length; i += 2) {
 
         if (tokens[i] === "+") {
-
             answer += tokens[i + 1];
-
         }
 
         else if (tokens[i] === "-") {
-
             answer -= tokens[i + 1];
         }
     }
 
     return answer;
 }
+
