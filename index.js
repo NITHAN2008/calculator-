@@ -1,6 +1,5 @@
 // Get the display
 const display = document.getElementById("display");
-}
 //adds the button value to the display
 function press(value) {
     //Replace the initial 0 with the first number
