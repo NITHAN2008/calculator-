@@ -73,7 +73,7 @@ function calculate() {
 // Clear all
 function clearDisplay() {
     display.value = "";
-}
+
 
 // Delete the last character
 function deleteLast() {
