@@ -20,7 +20,31 @@ function preview() {
         result.value = "";
     }
 }
+// nthRoot
+function nthRoot(number, root) {
 
+    if (number < 0 || root <= 0) {
+        return "Error";
+    }
+
+    let guess = number / root;
+
+    for (let i = 0; i < 20; i++) {
+
+        let power = 1;
+
+        // Calculate guess^(root-1)
+        for (let j = 0; j < root - 1; j++) {
+            power *= guess;
+        }
+
+        let powerRoot = power * guess;
+
+        guess = ((root - 1) * guess + number / power) / root;
+    }
+
+    return guess.toFixed(3);
+}
 
 // Calculate 
 function calculate() {
@@ -35,6 +59,18 @@ function calculate() {
         operator = "+";
     } else if (expression.includes("-")) {
         operator = "-";
+       }else if(expression.includes("√")) {
+
+        let parts = expression.split("√");
+
+        let number = parseFloat(parts[0]);
+
+        let root = parseInt(parts[1]);
+
+        display.value = nthRoot(number, root);
+
+        return; 
+
     } else if (expression.includes("*")) {
         operator = "*";
     } else if (expression.includes("/")) {
@@ -73,7 +109,7 @@ function calculate() {
 // Clear all
 function clearDisplay() {
     display.value = "";
-
+}
 
 // Delete the last character
 function deleteLast() {
@@ -143,3 +179,62 @@ function calculateSimple(exp) {
     return answer;
 }
 
+// nthRoot
+function nthRoot(number, root) {
+
+    if (number < 0 || root <= 0) {
+        return "Error";
+    }
+
+    let guess = number / root;
+
+    for (let i = 0; i < 20; i++) {
+
+        let power = 1;
+
+        // Calculate guess^(root-1)
+        for (let j = 0; j < root - 1; j++) {
+            power *= guess;
+        }
+
+        let powerRoot = power * guess;
+
+        guess = ((root - 1) * guess + number / power) / root;
+    }
+
+    return guess.toFixed(3);
+}
+
+function gcd(a, b) {
+    while (b != 0) {
+        let temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+
+// Convert Decimal to Fraction
+function decimalToFraction() {
+
+    let display = document.getElementById("display");
+    let decimal = parseFloat(display.value);
+
+    if (isNaN(decimal)) {
+        display.value = "Error";
+        return;
+    }
+
+    // Round to 3 decimal places
+    decimal = Number(decimal.toFixed(3));
+
+    let denominator = 1000;
+    let numerator = decimal * denominator;
+
+    let divisor = gcd(numerator, denominator);
+
+    numerator = numerator / divisor;
+    denominator = denominator / divisor;
+
+    display.value = numerator + "/" + denominator;
+}
