@@ -1,5 +1,11 @@
 // Get the display
 const display = document.getElementById("display");
+
+// Add numbers and operators
+function press(value) {
+    display.value += value;
+
+}
 //adds the button value to the display
 function press(value) {
     //Replace the initial 0 with the first number
@@ -35,6 +41,10 @@ function calculate() {
         operator = "+";
     } else if (expression.includes("-")) {
         operator = "-";
+        } else if (expression.includes("%")) { //modulo function
+        operator = "%";
+    } else if (expression.includes("^")) { //exponent functoon
+        operator = "^";  
     } else if (expression.includes("*")) {
         operator = "*";
     } else if (expression.includes("/")) {
@@ -55,6 +65,49 @@ function calculate() {
         answer = num1 + num2;
     } else if (operator === "-") {
         answer = num1 - num2;
+} else if (operator === "%") { //modulo function
+        //step 1 $ 2: read the base and exponent
+        let dividend = num1;
+        let divisor = num2;
+        //step3: convert divisor to positive if negative
+        if (divisor < 0) {
+            divisor = divisor * -1;
+        }
+        //step4: store the dividend as the current remainder
+        let remainder = dividend;
+
+        //handle negative dividend
+        let isNegative = false;
+        if (remainder < 0){
+            remainder = remainder * -1;
+            isNegative = true;
+        }
+        //step5 $ 6: repeatedly subtract the divisor
+        while (remainder >= divisor) {
+            remainder = remainder - divisor;
+        }
+        //restore the sign if the dividend was negative
+        if(isNegative){
+            remainder = remainder * -1;
+        }
+        //the remaining value is the modulo result
+        answer = remainder;
+    
+    } else if (operator === "^") {   //exponent function 
+    //store the initial result as 1
+        let result = 1;
+        //if the exponent is 0, the answer is always 1
+        if (num2 === 0){
+            result = 1;
+        }else {
+            //repeat the multiplication according to the exponent
+            for (let i = 0; i < num2; i++){
+                //multiply the current result by the base each time 
+                result = result * num1;
+            }
+            //store the final answer
+            answer = result;
+        }    
     } else if (operator === "*") {
         answer = num1 * num2;
     } else if (operator === "/") {
