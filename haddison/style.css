@@ -1,0 +1,129 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f4f7fb;
+    color:#333;
+    line-height:1.7;
+}
+
+/* Header */
+
+header{
+    background:#0d47a1;
+    color:white;
+    text-align:center;
+    padding:35px;
+}
+
+header h1{
+    font-size:40px;
+    margin-bottom:10px;
+}
+
+/* Main Container */
+
+.container{
+    width:85%;
+    max-width:1000px;
+    margin:30px auto;
+}
+
+/* Sections */
+
+section{
+    background:white;
+    padding:25px;
+    margin-bottom:25px;
+    border-radius:10px;
+    box-shadow:0 3px 12px rgba(0,0,0,.1);
+}
+
+section h2{
+    color:#0d47a1;
+    margin-bottom:15px;
+}
+
+section h3{
+    margin-top:20px;
+    color:#333;
+}
+
+/* Tables */
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+
+table th{
+    background:#0d47a1;
+    color:white;
+    padding:12px;
+}
+
+table td{
+    border:1px solid #ccc;
+    padding:12px;
+    text-align:center;
+}
+
+/* Ordered List */
+
+ol{
+    padding-left:25px;
+}
+
+ol li{
+    margin:10px 0;
+}
+
+/* Code Blocks */
+
+.code{
+    background:#222;
+    color:#00ff88;
+    padding:20px;
+    border-radius:8px;
+    margin-top:20px;
+    font-family:Consolas, monospace;
+    white-space:pre-wrap;
+    overflow-x:auto;
+}
+
+/* Footer */
+
+footer{
+    background:#0d47a1;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:30px;
+}
+
+/* Responsive Design */
+
+@media (max-width:768px){
+
+.container{
+    width:95%;
+}
+
+header h1{
+    font-size:30px;
+}
+
+table{
+    font-size:14px;
+}
+
+.code{
+    font-size:14px;
+}
+
+}
