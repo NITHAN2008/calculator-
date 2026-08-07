@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator Project Report</title>
+
+    <link rel="stylesheet" href="webpage.css">
+</head>
+<body>
+  <header>
+    <h1>Calculator Project Report</h1>
+    <p>Implementation of Modulo (%) and Exponent (^) Functions</p>
+</header>
+<div class="container">
+
+<section>
+     <h2>Introduction</h2>
+     <p>
+        This project involved improving a simple calculator by adding
+        the modulo (%) and exponent (^) operations using HTML,CSS and JavaScript.
+        These Functions extend the calculator beyond basic arithmetic. 
+     </p>
+</section>
+
+<section>
+    <h2>Project  Analysis</h2>
+    <h3>Modulo Function</h3>
+    <p>
+        The modulo operator (%) returns the remainder after dividing one number by another.
+    </p>
+    <ul>
+        <li>10 % 3 = 1</li>
+        <li>20 % 4 = 0</li>
+    </ul>
+
+    <h3>Exponent Function</h3>
+    <p>
+        The exponent operator (^) raises a number by the power of another number.
+    </p>
+    <ul>
+        <li>2 ^ 3 = 8</li>
+        <li>5 ^ 2 = 25</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Algorithms</h2>
+    <h3>Modulo Algorithms</h3>
+    <ol>
+        <li>Start</li>
+        <li>Read the first number (divicend).</li>
+        <li>Read the second number (divisor).</li>
+        <li>If the divisor is negative convert it to a positive number</li>
+        <li>Store the dividend as the current remainder.</li>
+        <li>Repeatedly subtract the divisor fromm the remainder while the 
+            is greater than or equal to the divisor.
+        </li>
+        <li>When the remainder becomes smaller than the divisor, stop.</li>
+        <li>Display the result</li>
+        <li>Stop</li>
+
+    </ol>
+</section>
+<section>
+    <h3>Exponent Algorithms</h3>
+    <ol>
+        <li>Start.</li>
+        <li>Read the base number (num1).</li>
+        <li>Read the exponent number (num2).</li>
+        <li>Set the result to 1.</li>
+        <li>Check if the exponent is equal to 0</li>
+        <li>If the the exponent is 0, set the result to 1.</li>
+        <li>Otherwise, repeat the following untill the  loop has executed
+            the same number of time as the exponent:
+            <ul><li>Multiply the current result by the  base.</li></ul>
+        </li>
+        <li>Store the result in the answer variable.</li>
+        <li>Display the answer.</li>
+        <li>Stop</li>      
+    </ol>
+</section>
+
+<section>
+    <h2>Conclusion</h2>
+    <p>
+        The modulo and exponent functions where successfully Implemented.
+        This project improved my understanding of JavaScript operators,
+        functions and debugging.
+    </p>
+</section>
+
+<section>
+    <h2>Project Snapshot</h2>
+    <img src="image/snap.png" alt="Calculator Snapshot">
+</section>
+
+<button onclick="showMessage()">Project Completed</button>
+<p id="message"></p>
+</div>
+</body>
+</html >
