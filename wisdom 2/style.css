@@ -1,0 +1,96 @@
+.header{
+    color: white;
+    font-family: Arial;
+    font-size: 20px; 
+     background-color: rgb(0, 55, 255);
+     height: 50px;
+     padding-left: 120px;
+     padding-top: 30px;
+     border-radius: 10px;
+
+}
+.div{
+    color: rgb(0, 4, 255);
+    font-family: Arial;
+    font-size: 15px;
+     margin-left: 130px; 
+     margin-top:80px ;
+}
+.main{
+    color: rgb(38, 0, 255);
+    font-family: Arial;
+    font-size: 70px;
+     margin-left: 120px; 
+     margin-top:15px ;
+     margin-bottom: 10px;
+}
+.vision{
+     color: rgb(0, 0, 0);
+    font-family: Arial;
+    font-size: 70px;
+     margin-left: 120px; 
+     margin-top:15px ;
+     margin-bottom: 10px;
+}
+.real{
+     color: rgb(17, 0, 255);
+    font-family: Arial;
+    font-size: 70px;
+     margin-left: 120px; 
+     margin-top:15px ;
+}
+
+.HOME{
+    color: rgb(13, 0, 255);
+    background-color: rgb(255, 255, 255);
+    border: white;
+    border-color: whitesmoke;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 12px 24px;
+    transition: 0.2s ease;
+    position: fixed;
+    top: 30px;
+    left: 50rem;
+}
+
+.HOME:hover{
+    background-color: rgb(34, 255, 0);
+    
+}
+
+.p{
+   color: rgb(100, 153, 217);
+    background-color: rgb(255, 255, 255);
+    border: white;
+    border-color: rgb(170, 161, 161);
+    font-size: 16px;
+    font-weight: 300;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 12px 24px;
+    transition: 0.2s ease;
+    position: fixed;
+    top: 30px;
+    left: 50rem;
+}
+
+.HOME:active{
+    background-color: rgb(255, 0, 21);
+    transform: translateY(3px);
+}
+.ABOUT{
+    color: rgb(13, 0, 255);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+    background-color: rgb(255, 255, 255);
+    border: white;
+    border-color: whitesmoke;  font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 12px 24px;
+    transition: 0.2s ease;
+    position: fixed;
+    top: 30px;
+    left: 80rem;
+}
